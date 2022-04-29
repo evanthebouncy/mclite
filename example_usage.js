@@ -118,5 +118,44 @@ $(document).ready(function() {
 
     });
 
+    // bind event to the use_mockup button
+    $("#use_mockup").click(function() {
+        // use a small wraper of timer to wait 100 miliseconds
+        // this is to make sure the rendering is done before the mockup is loaded
+        // otherwise, the mockup will be loaded before the rendering is done
+        // and the rendering will be overwritten by the mockup
+        // var timer = setTimeout(function() {
+        //     render_items(mockup_items);
+        // }, 100);
+        // reset_render(mock_items.inventory.length, mock_assets);
+
+
+
+            //1. Create a new function that returns a promise
+    function firstFunction() {
+        return new Promise((resolve, reject) => {
+            let y = 0
+            setTimeout(() => {
+                reset_render(mock_items.inventory.length, mock_assets);
+                resolve("done");
+            }, 200)
+        })
+      }
+      
+      //2. Create an async function
+      async function secondFunction() {
+          console.log('Before promise call.')
+          //3. Await for the first function to complete
+          const result = await firstFunction()
+          console.log('Promise resolved: ' + result)
+          console.log('Next step.')
+          render_items(mock_items);
+
+      }; 
+  
+      secondFunction()
+
+    });
+
 
 });
