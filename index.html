@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://unpkg.com/konva@8/konva.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="drawing_app.js"></script>
+        <script src="example_usage.js"></script>
+    </head> 
+
+    <body>
+        <!--- add a randomize button -->
+        <div id="left-side">
+            <button id="randomize_layout">Click Me First to Compute Layout</button>
+            <button id="randomize_items">Then Click Me Few Times to Render Random Items</button>
+            <br>
+            ASSET LIST HERE:
+            <div id="asset_list"></div>
+            RANDOMIZED ITEMS HERE:
+            <div id="example_item_json">  stuff here  </div>
+        </div>
+
+        <div id="konva-holder"></div>
+    </body>
+
+    <!-- add a style to make the konva-holder float to the right -->
+    <style>
+        #konva-holder {
+            float: right;
+            width: 50%;
+            height: 100%;
+        }
+
+        #left-side {
+            float: left;
+            width: 50%;
+            height: 100%;
+        }
+    </style>
+
+</html>
